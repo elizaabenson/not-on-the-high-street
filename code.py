@@ -12,5 +12,14 @@ with open('C:/Users/frizz/OneDrive/Desktop/nypd-arrest-data-2018-1.csv') as f:
         for (k,v) in row.items(): # go over each column name and value 
             columns[k].append(v)
 
-            #bring back results just for OFNS_DESC column
+#bring back results just for OFNS_DESC column
 OFNS_DESC=(columns['OFNS_DESC'])
+
+# count the occurences of each value in the OFNS_DESC column in desc order
+ctr = Counter(OFNS_DESC)
+sorted(ctr, key=ctr.get, reverse=True)
+
+#print first 10 values from count above
+
+listofTuples = sorted(ctr.items() , reverse=True, key=lambda x: x[1])
+listofTuples[:10]
