@@ -27,7 +27,7 @@ listofTuples[:10]
 #see screenshot 1 for the results of the above query
 
 #allow the user to enter part of an offense description and bring back the number of occurrences for that description
-#this code allows for printing the result on the screen, however the next step will also save the results to a csv as requested, so line 38 could be omitted if not required
+#this code allows for printing the result on the screen, however the next step will also save the results to a csv as requested, so line 40 could be omitted if not required
 
 # initializing search key string
 search_key = input("Enter offence descripton: ")
@@ -38,3 +38,13 @@ res = dict(filter(lambda item: search_key in item[0], ctr.items()))
   
 # printing result 
 print("The volume of occurrences for that offense description is: " + str(res))
+
+#see screenshot 2 for the results of the above query
+
+#write the results to a csv file
+with open('C:/Users/frizz/OneDrive/Desktop/test.csv', 'w') as f:  
+    writer = csv.writer(f)
+    for k, v in res.items():
+       writer.writerow([k, v])
+    
+#see screenshot 3 for the results of the above query
