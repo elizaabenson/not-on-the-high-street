@@ -23,3 +23,18 @@ sorted(ctr, key=ctr.get, reverse=True)
 
 listofTuples = sorted(ctr.items() , reverse=True, key=lambda x: x[1])
 listofTuples[:10]
+
+#see screenshot 1 for the results of the above query
+
+#allow the user to enter part of an offense description and bring back the number of occurrences for that description
+#this code allows for printing the result on the screen, however the next step will also save the results to a csv as requested, so line 38 could be omitted if not required
+
+# initializing search key string
+search_key = input("Enter offence descripton: ")
+  
+# Using dict() + filter() + lambda
+# Substring Key match in dictionary
+res = dict(filter(lambda item: search_key in item[0], ctr.items()))
+  
+# printing result 
+print("The volume of occurrences for that offense description is: " + str(res))
