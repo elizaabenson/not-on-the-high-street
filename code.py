@@ -95,3 +95,4 @@ with open('C:/Users/frizz/OneDrive/Desktop/test.csv', 'w') as f:
     for k, v in res.items():
        writer.writerow([k, v])
 
+#see screenshots 6a, 6b and 6c for the results of the above query
