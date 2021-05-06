@@ -61,3 +61,27 @@ with open('C:/Users/frizz/OneDrive/Desktop/nypd-arrest-data-2018-1.csv') as f:
 print (total)
 
 #see screenshot 4 for the results of the above query
+
+# unit test 2 - check that the final CSV correctly contains the right value for the instances of DANGEROUS
+
+#check whole csv for instances
+total = 0
+
+with open('C:/Users/frizz/OneDrive/Desktop/nypd-arrest-data-2018-1.csv') as f:
+    for line in f:
+        found = line.find('DANGEROUS')
+        if found != -1 and found != 0:
+            total += 1
+
+print (total)
+
+#check against values produced from code below 
+search_key = input("Enter offence descripton: ")
+res = dict(filter(lambda item: search_key in item[0], ctr.items()))
+print("The volume of occurrences for that offense description is: " + str(res))
+with open('C:/Users/frizz/OneDrive/Desktop/test.csv', 'w') as f:  
+    writer = csv.writer(f)
+    for k, v in res.items():
+       writer.writerow([k, v])
+
+#see screenshot 5 for the results of the above query
