@@ -84,4 +84,14 @@ with open('C:/Users/frizz/OneDrive/Desktop/test.csv', 'w') as f:
     for k, v in res.items():
        writer.writerow([k, v])
 
-#see screenshot 5 for the results of the above query
+#see screenshots 5a and 5b for the results of the above query
+
+# unit test 3 - check that all instances of ASSAULT are found by inputing ASSAULT, ASSAUL, ASSAU
+search_key = input("Enter offence descripton: ")
+res = dict(filter(lambda item: search_key in item[0], ctr.items()))
+print("The volume of occurrences for that offense description is: " + str(res))
+with open('C:/Users/frizz/OneDrive/Desktop/test.csv', 'w') as f:  
+    writer = csv.writer(f)
+    for k, v in res.items():
+       writer.writerow([k, v])
+
