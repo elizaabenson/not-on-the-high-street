@@ -48,3 +48,16 @@ with open('C:/Users/frizz/OneDrive/Desktop/test.csv', 'w') as f:
        writer.writerow([k, v])
     
 #see screenshot 3 for the results of the above query
+
+#unit test 1 - search for all instances of word in the entire CSV and check it is identical to the result from just searching OFNS_DESC column 
+total = 0
+
+with open('C:/Users/frizz/OneDrive/Desktop/nypd-arrest-data-2018-1.csv') as f:
+    for line in f:
+        found = line.find('DANGEROUS DRUGS')
+        if found != -1 and found != 0:
+            total += 1           
+
+print (total)
+
+#see screenshot 4 for the results of the above query
